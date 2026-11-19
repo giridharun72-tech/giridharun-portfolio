@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ZoomOut, Download } from 'lucide-react';
 
@@ -16,22 +17,27 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title }: P
     if (e.target === e.currentTarget) onClose();
   }, [onClose]);
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="cert-modal-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 overflow-y-auto"
           onClick={handleBackdrop}
         >
           <motion.div
+            key="cert-modal-content"
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.92, opacity: 0 }}
             transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-            className="relative max-w-4xl w-full bg-[#111113] rounded-xl border border-white/8 overflow-hidden"
+            className="relative max-w-4xl w-full my-auto bg-[#111113] rounded-xl border border-white/10 overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/5">
@@ -39,7 +45,7 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title }: P
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setZoomed(!zoomed)}
-                  className="p-1.5 text-zinc-500 hover:text-zinc-200 transition-colors rounded-md hover:bg-white/5"
+                  className="p-1.5 text-zinc-500 hover:text-zinc-200 transition-colors rounded-md hover:bg-white/5 cursor-pointer"
                   aria-label={zoomed ? 'Zoom out' : 'Zoom in'}
                 >
                   {zoomed ? <ZoomOut className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
@@ -54,7 +60,7 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title }: P
                 </a>
                 <button
                   onClick={onClose}
-                  className="p-1.5 text-zinc-500 hover:text-zinc-200 transition-colors rounded-md hover:bg-white/5"
+                  className="p-1.5 text-zinc-500 hover:text-zinc-200 transition-colors rounded-md hover:bg-white/5 cursor-pointer"
                   aria-label="Close"
                 >
                   <X className="h-4 w-4" />
@@ -74,6 +80,7 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title }: P
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

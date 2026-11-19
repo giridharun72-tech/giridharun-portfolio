@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { GithubIcon } from './Icons';
@@ -35,25 +36,29 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     [onClose]
   );
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <AnimatePresence>
       {project && (
         <motion.div
+          key="project-modal-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={handleBackdrop}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 overflow-y-auto"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 overflow-y-auto"
         >
           <motion.div
-            initial={{ scale: 0.94, opacity: 0, y: 16 }}
+            key="project-modal-content"
+            initial={{ scale: 0.94, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.94, opacity: 0, y: 16 }}
+            exit={{ scale: 0.94, opacity: 0, y: 20 }}
             transition={{ type: 'spring', damping: 26, stiffness: 300 }}
-            className={`relative max-w-2xl w-full my-8 rounded-2xl border overflow-hidden shadow-2xl transition-colors duration-300 ${
+            className={`relative max-w-2xl w-full my-auto rounded-2xl border overflow-hidden shadow-2xl transition-colors duration-300 ${
               isDark
-                ? 'bg-[#111113] border-white/10 text-zinc-100 shadow-[0_20px_60px_rgba(0,0,0,0.95)]'
-                : 'bg-white border-black/10 text-zinc-900 shadow-[0_20px_60px_rgba(0,0,0,0.18)]'
+                ? 'bg-[#111113] border-white/10 text-zinc-100 shadow-[0_25px_70px_rgba(0,0,0,0.95)]'
+                : 'bg-white border-black/10 text-zinc-900 shadow-[0_25px_70px_rgba(0,0,0,0.18)]'
             }`}
             onClick={(e) => e.stopPropagation()}
           >
@@ -239,6 +244,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

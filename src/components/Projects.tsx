@@ -129,14 +129,19 @@ function ProjectCard({
             <span className={isDark ? 'text-zinc-500' : 'text-zinc-400'}>
               // ECE SPEC
             </span>
-            <span
-              className={`inline-flex items-center gap-1 font-medium transition-all duration-200 group-hover:translate-x-1 ${
-                isDark ? 'text-zinc-400 group-hover:text-white' : 'text-zinc-600 group-hover:text-zinc-950'
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(project);
+              }}
+              className={`inline-flex items-center gap-1.5 font-medium transition-all duration-200 group-hover:translate-x-1 cursor-pointer ${
+                isDark ? 'text-zinc-300 group-hover:text-white' : 'text-zinc-700 group-hover:text-zinc-950'
               }`}
             >
               View Details
               <ArrowRight className="h-3 w-3" />
-            </span>
+            </button>
           </div>
         </div>
       </TiltCard>

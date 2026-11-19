@@ -122,25 +122,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </p>
               </div>
 
-              {/* Verified Hardware / Build Image (Rendered only when a real image exists) */}
-              {project.image && (
-                <div
-                  className={`relative aspect-video w-full rounded-xl overflow-hidden border transition-colors ${
-                    isDark ? 'border-white/10 bg-[#09090B]' : 'border-black/10 bg-zinc-100'
-                  }`}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-2.5 left-2.5 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10 text-[10.5px] font-mono text-zinc-300 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>Verified Project &amp; Award Documentation</span>
-                  </div>
-                </div>
-              )}
-
               {/* Architecture & Key Technical Highlights */}
               {project.highlights && project.highlights.length > 0 && (
                 <div className="space-y-3">

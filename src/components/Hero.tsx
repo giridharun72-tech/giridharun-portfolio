@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, ArrowDown, Mail, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import MagneticButton from './common/MagneticButton';
+import ProfilePortrait from './common/ProfilePortrait';
 import { useTheme } from '../context/ThemeContext';
 
 const fade = (delay: number) => ({
@@ -18,60 +19,59 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-6xl px-6 pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-2xl relative z-10">
           
-          {/* Location & Status HUD Chip */}
-          <motion.div {...fade(0.1)} className="flex items-center gap-3 mb-6">
-            <div
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 backdrop-blur-md transition-colors ${
-                isDark
-                  ? 'border-white/10 bg-white/[0.03] text-zinc-300'
-                  : 'border-black/10 bg-black/[0.03] text-zinc-700'
-              }`}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-emerald-400' : 'bg-emerald-500'}`} />
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-emerald-500' : 'bg-emerald-600'}`} />
-              </span>
-              <span className="text-[11px] font-mono tracking-wider uppercase">
-                {isDark ? 'HARDWARE ONLINE' : 'SOLAR HARVEST ACTIVE'}
-              </span>
-            </div>
+          {/* ─── Cockpit Pilot Dossier & Telemetry Bar ─── */}
+          <motion.div {...fade(0.12)} className="flex items-center gap-5 sm:gap-6 mb-7">
+            {/* Studio Dossier Portrait */}
+            <ProfilePortrait size="md" />
 
-            <div className={`flex items-center gap-1.5 text-[12px] ${isDark ? 'text-zinc-500' : 'text-zinc-500'}`}>
-              <MapPin className="h-3.5 w-3.5" />
-              <span>{PERSONAL_INFO.location}</span>
+            {/* Telemetry & Identity Meta Stack */}
+            <div className="flex flex-col gap-2 min-w-0">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <div
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 backdrop-blur-md transition-colors ${
+                    isDark
+                      ? 'border-white/10 bg-white/[0.03] text-zinc-300'
+                      : 'border-black/10 bg-black/[0.03] text-zinc-700'
+                  }`}
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-emerald-400' : 'bg-emerald-500'}`} />
+                    <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-emerald-500' : 'bg-emerald-600'}`} />
+                  </span>
+                  <span className="text-[11px] font-mono tracking-wider uppercase">
+                    {isDark ? 'HARDWARE ONLINE' : 'SOLAR HARVEST ACTIVE'}
+                  </span>
+                </div>
+
+                <div className={`flex items-center gap-1.5 text-[12px] ${isDark ? 'text-zinc-500' : 'text-zinc-500'}`}>
+                  <MapPin className="h-3.5 w-3.5" />
+                  <span>{PERSONAL_INFO.location}</span>
+                </div>
+              </div>
+
+              {/* Engineering Callsign & Coordinates */}
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-mono text-zinc-500 tracking-wider">
+                <span className={`font-semibold ${isDark ? 'text-zinc-400' : 'text-zinc-700'}`}>
+                  PILOT DOSSIER // GS-2026
+                </span>
+                <span className="opacity-40">·</span>
+                <span className="text-zinc-500">{PERSONAL_INFO.coordinates}</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Portrait + Name with Staggered Kinetic Typography */}
-          <motion.div {...fade(0.18)} className="flex items-center gap-5 mb-5">
-            <div className="relative group shrink-0">
-              <div
-                className={`absolute -inset-0.5 rounded-2xl opacity-30 group-hover:opacity-70 blur-sm transition duration-500 ${
-                  isDark
-                    ? 'bg-gradient-to-r from-zinc-500 to-white/40'
-                    : 'bg-gradient-to-r from-amber-400 to-zinc-950/20'
-                }`}
-              />
-              <img
-                src={PERSONAL_INFO.profileImage}
-                alt={PERSONAL_INFO.name}
-                className={`relative h-16 w-16 md:h-18 md:w-18 rounded-xl object-cover border shadow-2xl transition-all duration-300 ${
-                  isDark ? 'border-white/15' : 'border-black/15'
-                }`}
-              />
-            </div>
-            <div>
-              <span className={`block text-[11px] font-mono tracking-widest uppercase mb-0.5 ${isDark ? 'text-zinc-500' : 'text-zinc-500'}`}>
-                HARDWARE · IOT · CLOUD
-              </span>
-              <h1
-                className={`text-4xl md:text-6xl font-extrabold tracking-tight leading-none transition-colors duration-300 ${
-                  isDark ? 'text-white' : 'text-zinc-950'
-                }`}
-              >
-                {PERSONAL_INFO.name}
-              </h1>
-            </div>
+          {/* ─── Hero Headline (100% Flush Left Alignment with Rest of Page) ─── */}
+          <motion.div {...fade(0.2)} className="mb-4">
+            <span className={`block text-[11px] font-mono tracking-[0.25em] uppercase mb-2 ${isDark ? 'text-zinc-500' : 'text-zinc-500'}`}>
+              HARDWARE · IOT · CLOUD
+            </span>
+            <h1
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-zinc-950'
+              }`}
+            >
+              {PERSONAL_INFO.name}
+            </h1>
           </motion.div>
 
           {/* Subtitle */}

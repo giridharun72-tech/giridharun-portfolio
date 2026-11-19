@@ -9,7 +9,8 @@ export const PERSONAL_INFO = {
   phone: '+91 8508277981',
   github: 'https://github.com/giridharun72-tech',
   iotHub: 'https://olymbia.lovable.app',
-  profileImage: '/assets/profile.jpg',
+  profileImage: '/assets/profile-nobg.png',
+  profileImageRaw: '/assets/profile.jpg',
   pitch: 'Engineering end-to-end hardware-to-cloud systems—from 100% analog closed-loop PWM circuits and offline LoRa mine-safety networks to predictive IoT platforms and Java Spring Boot applications.',
   quickStats: [
     { label: "WHIZZHACK'26", value: '1st Prize (Hardware Track)', highlight: true, icon: 'Trophy' },

@@ -15,10 +15,15 @@ export default function Academics() {
     <section id="academics" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div {...fade} className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-50 mb-3">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">// 04</span>
+            <span className="h-px w-6 bg-white/10" />
+            <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">ACADEMIC FOUNDATION</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
             Education
           </h2>
-          <p className="text-[15px] text-zinc-500 max-w-xl">
+          <p className="text-[15px] text-zinc-400 max-w-xl">
             Academic background in Electronics &amp; Communication Engineering.
           </p>
         </motion.div>

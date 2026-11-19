@@ -14,10 +14,15 @@ export default function Skills() {
     <section id="skills" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div {...fade} className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-50 mb-3">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">// 06</span>
+            <span className="h-px w-6 bg-white/10" />
+            <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">TECHNICAL ARSENAL</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
             Technical Skills
           </h2>
-          <p className="text-[15px] text-zinc-500 max-w-xl">
+          <p className="text-[15px] text-zinc-400 max-w-xl">
             Core competencies across hardware, firmware, software, and cloud platforms.
           </p>
         </motion.div>

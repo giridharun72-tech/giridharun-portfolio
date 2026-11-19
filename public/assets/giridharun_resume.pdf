@@ -6,38 +6,70 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 285 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 4256 >>
 stream
-BT
-/F1 22 Tf
-50 720 Td
-(GIRIDHARUN S) Tj
-/F1 12 Tf
-0 -26 Td
-(B.E. Electronics & Communication Engineering - Embedded & IoT) Tj
-0 -20 Td
-(Email: giridharun72@gmail.com | Phone: +91 8508277981 | Location: Karur, Tamil Nadu) Tj
-0 -20 Td
-(GitHub: https://github.com/giridharun72-tech) Tj
-ET
+BT /F2 20 Tf 50 745 Td (GIRIDHARUN S) Tj ET
+BT /F2 10 Tf 50 730 Td (B.E. Electronics & Communication Engineering  |  Embedded Systems & IoT) Tj ET
+BT /F1 8.5 Tf 50 715 Td (Email: giridharun72@gmail.com  |  Phone: +91 8508277981  |  Location: Karur, Tamil Nadu, India) Tj ET
+BT /F1 8.5 Tf 50 703 Td (GitHub: https://github.com/giridharun72-tech  |  Portfolio: https://giridharun-portfolio.vercel.app) Tj ET
+50 694 m 562 694 l S
+BT /F2 11 Tf 50 680 Td (PROFESSIONAL SUMMARY) Tj ET
+BT /F1 8.5 Tf 50 666 Td (B.E. Electronics & Communication Engineering student specializing in end-to-end hardware-to-cloud systems,) Tj ET
+BT /F1 8.5 Tf 50 655 Td (analog closed-loop circuits, embedded microcontrollers, and full-stack software architectures.) Tj ET
+BT /F2 11 Tf 50 638 Td (EDUCATION) Tj ET
+BT /F2 9.5 Tf 50 624 Td (B.E. Electronics & Communication Engineering - M. Kumarasamy College of Engineering (Autonomous)) Tj ET
+BT /F1 8.5 Tf 50 612 Td (Anna University Affiliated | NAAC A Grade & NBA Accredited | 2024 - 2028 | Karur, Tamil Nadu) Tj ET
+BT /F2 8.5 Tf 50 601 Td (Cumulative CGPA: 8.18 / 10.0 (Semester 1: 8.24 CGPA, Semester 2: 8.12 CGPA)) Tj ET
+BT /F1 8.5 Tf 50 590 Td (HSC: 81.3% (Cheran Matric HSS)  |  SSLC: 86.8% (Cheran Matric HSS)) Tj ET
+BT /F2 11 Tf 50 573 Td (HONORS & AWARDS) Tj ET
+BT /F2 9 Tf 50 559 Td (1st Prize Winner - WHIZZHACK 26 National Mega Tech Hackathon (Hardware Track)) Tj ET
+BT /F1 8.5 Tf 50 548 Td (Dept. of ECE, Erode Sengunthar Engineering College (Autonomous) - Built MilkScan AI in 12-hour sprint) Tj ET
+BT /F2 9 Tf 50 535 Td (Top 50 Selection - Smart India Hackathon (SIH) Internal Round (Autonomous Mine Warning Network)) Tj ET
+BT /F2 11 Tf 50 518 Td (EXPERIENCE) Tj ET
+BT /F2 9.5 Tf 50 504 Td (Internet of Things (IoT) Intern - Codtech IT Solutions (Remote)) Tj ET
+BT /F1 8.5 Tf 50 493 Td (Duration: 10 June 2026 - 08 July 2026 (4 Weeks)  |  Credential ID: CITS4432) Tj ET
+BT /F1 8.5 Tf 50 482 Td (- Developed embedded IoT sensor arrays and cloud integration pipelines under ISO 9001:2015 standards.) Tj ET
+BT /F2 11 Tf 50 465 Td (KEY ENGINEERING PROJECTS) Tj ET
+BT /F2 9 Tf 50 451 Td (Autonomous Mine Subsidence Deformation & Early Warning System (SIH Top 50)) Tj ET
+BT /F1 8.5 Tf 50 440 Td (- Offline RF LoRa telemetry mesh for subterranean strata deformation monitoring with sub-mm accuracy.) Tj ET
+BT /F2 9 Tf 50 426 Td (MilkScan AI (ECOMilk System) - Real-Time Dairy Adulteration Tester (1st Prize Winner)) Tj ET
+BT /F1 8.5 Tf 50 415 Td (- Multi-sensor edge screening system evaluating milk quality, impedance, and adulterants on-device.) Tj ET
+BT /F2 9 Tf 50 401 Td (SeedVault - Bio-Preservation Chamber & Longevity Predictor (Indian Patent Form 2)) Tj ET
+BT /F1 8.5 Tf 50 390 Td (- Closed-loop Peltier & PID thermal regulation with mathematical Harrington Rule longevity forecasting.) Tj ET
+BT /F2 9 Tf 50 376 Td (100% Analog Temperature-Controlled 12V Fan Speed Regulator (Zero Microcontroller)) Tj ET
+BT /F1 8.5 Tf 50 365 Td (- Pure analog closed-loop PWM using LM35, LM358 op-amp comparator, and IRFZ44N MOSFET stage.) Tj ET
+BT /F2 9 Tf 50 351 Td (SmartBus - Real-Time Public Transit Tracking & Seat Booking Platform) Tj ET
+BT /F1 8.5 Tf 50 340 Td (- Full-stack enterprise Java & Spring Boot application with geospatial Haversine arrival algorithm.) Tj ET
+BT /F2 11 Tf 50 323 Td (TECHNICAL SKILLS) Tj ET
+BT /F2 8.5 Tf 50 310 Td (Microcontrollers & Hardware: ) Tj /F1 8.5 Tf (ESP32, Arduino Uno, Raspberry Pi, LoRa, STM32, Breadboard Circuitry) Tj ET
+BT /F2 8.5 Tf 50 298 Td (Sensors & Power Electronics: ) Tj /F1 8.5 Tf (LM35, LM358 Op-Amp, NE555 PWM, IRFZ44N MOSFET, SHT30-D, Buck Converters) Tj ET
+BT /F2 8.5 Tf 50 286 Td (Programming & Software: ) Tj /F1 8.5 Tf (C, Embedded C, Python, Java, SQL, HTML/CSS, JavaScript, TypeScript) Tj ET
+BT /F2 8.5 Tf 50 274 Td (Platforms, Cloud & Tools: ) Tj /F1 8.5 Tf (Spring Boot, Flask, React, Tailwind CSS, Git/GitHub, Render Cloud, REST APIs) Tj ET
+BT /F2 11 Tf 50 257 Td (CERTIFICATIONS) Tj ET
+BT /F1 8.5 Tf 50 244 Td (- NPTEL Elite: Programming in Java (Score: 60%) - IIT Kharagpur / Ministry of Education, Govt. of India) Tj ET
+BT /F1 8.5 Tf 50 232 Td (- Embedded Systems & Robotics Certification - Top Engineers India in association with IIT Madras RP event) Tj ET
 endstream
 endobj
 xref
-0 6
+0 7
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000227 00000 n 
-0000000305 00000 n 
+0000000244 00000 n 
+0000000317 00000 n 
+0000000395 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 7 /Root 1 0 R >>
 startxref
-644
+4711
 %%EOF

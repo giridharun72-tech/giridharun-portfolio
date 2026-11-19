@@ -48,15 +48,6 @@ export default function Hero() {
                   <span>{PERSONAL_INFO.location}</span>
                 </div>
               </div>
-
-              {/* Engineering Callsign & Coordinates */}
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-mono text-zinc-500 tracking-wider">
-                <span className={`font-semibold ${isDark ? 'text-zinc-400' : 'text-zinc-700'}`}>
-                  PILOT DOSSIER // GS-2026
-                </span>
-                <span className="opacity-40">·</span>
-                <span className="text-zinc-500">{PERSONAL_INFO.coordinates}</span>
-              </div>
             </div>
           </motion.div>
 

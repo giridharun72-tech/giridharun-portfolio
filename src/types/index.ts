@@ -8,6 +8,7 @@ export interface Project {
   highlights?: string[];
   liveLink?: string;
   githubLink?: string;
+  image?: string;
   iconName: string;
 }
 

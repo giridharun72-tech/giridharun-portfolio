@@ -79,6 +79,8 @@ export const PROJECTS: Project[] = [
     title: 'Autonomous Mine Deformation & Early Warning System',
     category: 'Hardware & IoT',
     badge: 'SIH Internal College Round · Competed among 50 teams',
+    image: '/assets/projects/mine-warning.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['LoRa Telemetry', 'Dual-Axis Pendulum Inclinometer', 'MEMS Inclinometers', 'Telescopic Jointmeters'],
     summary: 'Offline, multi-node structural subsidence and early warning network for underground mining safety without relying on external internet infrastructure.',
     highlights: [
@@ -93,6 +95,8 @@ export const PROJECTS: Project[] = [
     title: 'MilkScan AI (ECOMilk System) – Multi-Parameter Milk Quality & Adulteration Tester',
     category: 'Hardware & IoT',
     badge: "1st Prize Winner · WHIZZHACK'26 (ESEC) / 12-Hr Hackathon",
+    image: '/assets/projects/milkscan.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['Embedded Microcontrollers', 'Multi-Sensor Array', 'Real-Time Edge Analytics'],
     summary: 'Portable multi-parameter hardware screening unit engineered to detect adulteration and evaluate dairy purity in real time.',
     highlights: [
@@ -107,6 +111,8 @@ export const PROJECTS: Project[] = [
     title: 'SeedVault – IoT Seed Viability Predictor & Bio-Preservation System',
     category: 'Hardware & IoT',
     badge: 'Indian Patent Structured (Form 2)',
+    image: '/assets/projects/seedvault.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['ESP32', 'SHT30-D', 'DHT11', 'MQ-135', 'Load Cell', 'Peltier Module', '12V Cooling Fan', 'I2C OLED', 'Python (Flask)', "Harrington's Laws"],
     summary: "Closed-loop environmental bio-preservation chamber and cloud telemetry dashboard predicting seed viability across 55+ species; structured for Indian Patent filing (Form 2).",
     highlights: [
@@ -122,6 +128,8 @@ export const PROJECTS: Project[] = [
     title: '100% Analog Temperature-Controlled 12V Fan Speed Regulator',
     category: 'Analog Electronics',
     badge: 'Zero-Microcontroller Pure Hardware · UN SDG 7 & 9',
+    image: '/assets/projects/analog-fan.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['LM35 Sensor', 'LM358 Op-Amp', 'NE555 Timer PWM', 'IRFZ44N MOSFET', 'LM2596 Buck Converter', 'Arduino Uno + 0.96" I2C OLED (Passive Telemetry)'],
     summary: 'Pure analog closed-loop PWM motor controller featuring hardware manual override and voltage-divider protection, aligned with UN SDG 7 and SDG 9.',
     highlights: [
@@ -137,6 +145,8 @@ export const PROJECTS: Project[] = [
     title: 'SmartBus – Real-Time Public Transit Tracking & Booking Platform',
     category: 'Full-Stack & Cloud',
     badge: 'Production Cloud Deployment',
+    image: '/assets/projects/smartbus.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['Java', 'Spring Boot', 'Thymeleaf', 'Haversine ETA Algorithm', 'Render Cloud'],
     summary: 'Full-stack transit web application featuring dynamic Haversine-based arrival time estimation, seat booking, and passenger manifest verification.',
     highlights: [
@@ -151,6 +161,8 @@ export const PROJECTS: Project[] = [
     title: 'Olymbia Technologies – Enterprise IoT & Engineering Showcase',
     category: 'Full-Stack & Cloud',
     badge: 'Production Web Platform',
+    image: '/assets/projects/olymbia.jpg',
+    githubLink: 'https://github.com/giridharun72-tech',
     stack: ['React', 'Tailwind CSS', 'Lovable AI Cloud'],
     summary: 'Interactive web platform showcasing enterprise IoT prototypes and engineering workflows.',
     highlights: [

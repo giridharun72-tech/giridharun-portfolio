@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ArrowRight } from 'lucide-react';
+import { GithubIcon } from './common/Icons';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../types';
 import TiltCard from './common/TiltCard';
+import ProjectModal from './common/ProjectModal';
 import { useTheme } from '../context/ThemeContext';
 
 const CATEGORIES = ['All', 'Hardware & IoT', 'Analog Electronics', 'Full-Stack & Cloud'] as const;
@@ -15,14 +17,23 @@ const cardFade = {
   transition: { duration: 0.5, ease: 'easeOut' as const },
 };
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onSelect,
+}: {
+  project: Project;
+  onSelect: (p: Project) => void;
+}) {
   const { isDark } = useTheme();
 
   return (
     <motion.div {...cardFade} className="h-full">
-      <TiltCard className="p-6 h-full flex flex-col justify-between">
+      <TiltCard
+        onClick={() => onSelect(project)}
+        className="p-6 h-full flex flex-col justify-between cursor-pointer group transition-all duration-300"
+      >
         <div>
-          {/* Badge & Live Link */}
+          {/* Badge & Quick Links */}
           <div className="flex items-start justify-between gap-3 mb-4" style={{ transform: 'translateZ(20px)' }}>
             <span
               className={`inline-block text-[11px] font-medium rounded-md px-2.5 py-1 leading-tight border transition-colors ${
@@ -33,23 +44,46 @@ function ProjectCard({ project }: { project: Project }) {
             >
               {project.badge}
             </span>
-            {project.liveLink && (
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`shrink-0 transition-colors ${isDark ? 'text-zinc-500 hover:text-zinc-200' : 'text-zinc-500 hover:text-zinc-950'}`}
-                aria-label="Live link"
-              >
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            )}
+
+            {/* Quick Action Icons (Top-Right) */}
+            <div className="flex items-center gap-2 shrink-0">
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className={`p-1 rounded-md transition-colors ${
+                    isDark ? 'text-zinc-500 hover:text-white hover:bg-white/5' : 'text-zinc-500 hover:text-black hover:bg-black/5'
+                  }`}
+                  aria-label="GitHub Repository"
+                  title="GitHub Repository"
+                >
+                  <GithubIcon className="h-3.5 w-3.5" />
+                </a>
+              )}
+              {project.liveLink && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className={`p-1 rounded-md transition-colors ${
+                    isDark ? 'text-zinc-500 hover:text-white hover:bg-white/5' : 'text-zinc-500 hover:text-black hover:bg-black/5'
+                  }`}
+                  aria-label="Live Demo"
+                  title="Live Demo"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Title */}
           <h3
-            className={`text-[16px] font-semibold mb-2 leading-snug transition-colors ${
-              isDark ? 'text-zinc-100' : 'text-zinc-950'
+            className={`text-[16px] font-semibold mb-2 leading-snug transition-colors group-hover:text-white ${
+              isDark ? 'text-zinc-100 group-hover:text-white' : 'text-zinc-950 group-hover:text-black'
             }`}
             style={{ transform: 'translateZ(24px)' }}
           >
@@ -67,20 +101,43 @@ function ProjectCard({ project }: { project: Project }) {
           </p>
         </div>
 
-        {/* Stack */}
-        <div className="flex flex-wrap gap-1.5 pt-2" style={{ transform: 'translateZ(20px)' }}>
-          {project.stack.map((tech) => (
+        {/* Stack & Details Trigger Footer */}
+        <div className="space-y-4 pt-2">
+          {/* Tech Stack Pills */}
+          <div className="flex flex-wrap gap-1.5" style={{ transform: 'translateZ(20px)' }}>
+            {project.stack.map((tech) => (
+              <span
+                key={tech}
+                className={`text-[11px] rounded px-2 py-0.5 border transition-colors ${
+                  isDark
+                    ? 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
+                    : 'text-zinc-700 bg-black/[0.04] border-black/[0.08]'
+                }`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Subtle View Details Action Indicator */}
+          <div
+            className={`flex items-center justify-between pt-3 border-t text-[12px] font-mono transition-colors ${
+              isDark ? 'border-white/[0.06]' : 'border-black/[0.06]'
+            }`}
+            style={{ transform: 'translateZ(18px)' }}
+          >
+            <span className={isDark ? 'text-zinc-500' : 'text-zinc-400'}>
+              // ECE SPEC
+            </span>
             <span
-              key={tech}
-              className={`text-[11px] rounded px-2 py-0.5 border transition-colors ${
-                isDark
-                  ? 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
-                  : 'text-zinc-700 bg-black/[0.04] border-black/[0.08]'
+              className={`inline-flex items-center gap-1 font-medium transition-all duration-200 group-hover:translate-x-1 ${
+                isDark ? 'text-zinc-400 group-hover:text-white' : 'text-zinc-600 group-hover:text-zinc-950'
               }`}
             >
-              {tech}
+              View Details
+              <ArrowRight className="h-3 w-3" />
             </span>
-          ))}
+          </div>
         </div>
       </TiltCard>
     </motion.div>
@@ -89,6 +146,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const [active, setActive] = useState<string>('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { isDark } = useTheme();
 
   const filtered = active === 'All'
@@ -139,10 +197,16 @@ export default function Projects() {
         {/* Grid */}
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+            <ProjectCard key={p.id} project={p} onSelect={setSelectedProject} />
           ))}
         </div>
       </div>
+
+      {/* Interactive Project Detail Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, ArrowDown, Mail, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowDown, Mail, ArrowUpRight, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import MagneticButton from './common/MagneticButton';
 import ProfilePortrait from './common/ProfilePortrait';
@@ -148,6 +148,23 @@ export default function Hero() {
               <span className="flex items-center gap-1.5">
                 Certifications
                 <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
+              </span>
+            </MagneticButton>
+
+            <MagneticButton
+              href="/assets/giridharun_resume.pdf"
+              download="Giridharun_S_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`rounded-xl border px-4 py-3 text-[13px] font-medium backdrop-blur-md transition-all duration-300 ${
+                isDark
+                  ? 'border-white/15 bg-white/[0.03] text-zinc-200 hover:border-white/30 hover:text-white'
+                  : 'border-black/15 bg-white/80 text-zinc-800 hover:border-black/30 hover:text-black shadow-sm'
+              }`}
+            >
+              <span className="flex items-center gap-1.5">
+                <Download className="h-3.5 w-3.5 opacity-70" />
+                Download Resume
               </span>
             </MagneticButton>
 

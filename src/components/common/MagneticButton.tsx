@@ -8,6 +8,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   target?: string;
   rel?: string;
+  download?: string;
 }
 
 export default function MagneticButton({
@@ -17,6 +18,7 @@ export default function MagneticButton({
   onClick,
   target,
   rel,
+  download,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -60,7 +62,7 @@ export default function MagneticButton({
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} target={target} rel={rel} className="inline-block">
+      <a href={href} onClick={onClick} target={target} rel={rel} download={download} className="inline-block">
         {content}
       </a>
     );

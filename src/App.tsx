@@ -1,3 +1,4 @@
+import { ThemeProvider } from './context/ThemeContext';
 import StudioCockpitFrame from './components/layout/StudioCockpitFrame';
 import Esp32ParallaxBackground from './components/Esp32ParallaxBackground';
 import AmbientParticles from './components/common/AmbientParticles';
@@ -14,8 +15,8 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <>
-      {/* High-resolution ESP32 studio parallax background with radiant halo */}
+    <ThemeProvider>
+      {/* High-resolution ESP32 studio parallax background with dynamic day/night aura */}
       <Esp32ParallaxBackground />
 
       {/* 60fps ambient particle constellation */}
@@ -24,7 +25,7 @@ export default function App() {
       {/* Desktop subtle custom cursor */}
       <CustomCursor />
 
-      {/* Studio Cockpit HUD Frame with integrated navigation */}
+      {/* Studio Cockpit HUD Frame with integrated navigation & day/night toggle */}
       <StudioCockpitFrame>
         <main>
           <Hero />
@@ -38,6 +39,6 @@ export default function App() {
         </main>
         <Footer />
       </StudioCockpitFrame>
-    </>
+    </ThemeProvider>
   );
 }

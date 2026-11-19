@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import type { ReactNode, MouseEvent } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
 
 interface TiltCardProps {
   children: ReactNode;
@@ -10,6 +11,7 @@ interface TiltCardProps {
 
 export default function TiltCard({ children, className = '', onClick }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const { isDark } = useTheme();
 
   // Normalized mouse coords (-0.5 to 0.5)
   const x = useMotionValue(0);
@@ -27,9 +29,14 @@ export default function TiltCard({ children, className = '', onClick }: TiltCard
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['7deg', '-7deg']);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-7deg', '7deg']);
 
-  // Smooth radial spotlight (rgba(255, 255, 255, 0.09)) following cursor
-  const spotlightBg = useMotionTemplate`radial-gradient(380px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.09), transparent 75%)`;
-  const borderSpotlight = useMotionTemplate`radial-gradient(280px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.24), transparent 70%)`;
+  // Smooth radial spotlight adapted for dark & light mode
+  const spotlightBg = useMotionTemplate`radial-gradient(380px circle at ${mouseX}px ${mouseY}px, ${
+    isDark ? 'rgba(255, 255, 255, 0.09)' : 'rgba(0, 0, 0, 0.035)'
+  }, transparent 75%)`;
+  
+  const borderSpotlight = useMotionTemplate`radial-gradient(280px circle at ${mouseX}px ${mouseY}px, ${
+    isDark ? 'rgba(255, 255, 255, 0.24)' : 'rgba(0, 0, 0, 0.15)'
+  }, transparent 70%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -64,7 +71,11 @@ export default function TiltCard({ children, className = '', onClick }: TiltCard
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        className={`relative group rounded-xl border border-white/[0.08] bg-[#111113]/80 backdrop-blur-md transition-[border-color,box-shadow] duration-300 cursor-default select-none ${className}`}
+        className={`relative group rounded-xl border backdrop-blur-md transition-all duration-300 cursor-default select-none ${
+          isDark
+            ? 'border-white/[0.08] bg-[#111113]/80'
+            : 'border-black/[0.08] bg-white/90 shadow-[0_4px_25px_rgba(0,0,0,0.035)] hover:border-black/[0.16]'
+        } ${className}`}
       >
         {/* Spotlight overlay inside card */}
         <motion.div

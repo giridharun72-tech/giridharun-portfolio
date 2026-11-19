@@ -5,6 +5,7 @@ import { ACHIEVEMENTS } from '../data/portfolioData';
 import type { Achievement } from '../types';
 import CertificateModal from './common/CertificateModal';
 import TiltCard from './common/TiltCard';
+import { useTheme } from '../context/ThemeContext';
 
 const fade = {
   initial: { opacity: 0, y: 24 } as const,
@@ -21,29 +22,41 @@ function AchievementCard({
   onViewCert: (img: string, title: string) => void;
 }) {
   const isWinner = item.id === 'whizzhack-26';
+  const { isDark } = useTheme();
+
   return (
     <motion.div {...fade} className="h-full">
       <TiltCard className="p-5 h-full flex flex-col justify-between">
         <div className="flex items-start gap-3">
           <div
-            className="shrink-0 mt-0.5 h-9 w-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center"
+            className={`shrink-0 mt-0.5 h-9 w-9 rounded-lg border flex items-center justify-center transition-colors ${
+              isDark
+                ? 'bg-white/[0.04] border-white/[0.06] text-zinc-400'
+                : 'bg-black/[0.04] border-black/[0.08] text-zinc-700'
+            }`}
             style={{ transform: 'translateZ(20px)' }}
           >
             {isWinner ? (
-              <Trophy className="h-4 w-4 text-zinc-400" />
+              <Trophy className="h-4 w-4 text-amber-500" />
             ) : (
-              <Users className="h-4 w-4 text-zinc-400" />
+              <Users className="h-4 w-4" />
             )}
           </div>
           <div className="flex-1 min-w-0">
             <span
-              className="inline-block text-[11px] font-medium text-zinc-400 bg-white/[0.04] border border-white/[0.06] rounded-md px-2 py-0.5 mb-2"
+              className={`inline-block text-[11px] font-medium rounded-md px-2 py-0.5 mb-2 border transition-colors ${
+                isDark
+                  ? 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
+                  : 'text-zinc-700 bg-black/[0.04] border-black/[0.08]'
+              }`}
               style={{ transform: 'translateZ(18px)' }}
             >
               {item.badge}
             </span>
             <h3
-              className="text-[14px] font-semibold text-zinc-100 mb-1 leading-snug"
+              className={`text-[15px] font-semibold mb-1 leading-snug transition-colors ${
+                isDark ? 'text-zinc-100' : 'text-zinc-950'
+              }`}
               style={{ transform: 'translateZ(24px)' }}
             >
               {item.title}
@@ -52,17 +65,21 @@ function AchievementCard({
               {item.organization}
             </p>
             <p
-              className="text-[13px] text-zinc-400 leading-relaxed mb-3"
+              className={`text-[13px] leading-relaxed mb-3 transition-colors ${
+                isDark ? 'text-zinc-400' : 'text-zinc-600'
+              }`}
               style={{ transform: 'translateZ(14px)' }}
             >
               {item.summary}
             </p>
             <div className="flex items-center gap-4" style={{ transform: 'translateZ(18px)' }}>
-              <span className="font-mono text-[11px] text-zinc-600">{item.date}</span>
+              <span className={`font-mono text-[11px] ${isDark ? 'text-zinc-600' : 'text-zinc-500'}`}>{item.date}</span>
               {item.certificateImage && (
                 <button
                   onClick={() => onViewCert(item.certificateImage!, item.title)}
-                  className="inline-flex items-center gap-1 text-[12px] font-medium text-zinc-400 hover:text-zinc-200 transition-colors"
+                  className={`inline-flex items-center gap-1 text-[12px] font-medium transition-colors cursor-pointer ${
+                    isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-700 hover:text-black font-semibold'
+                  }`}
                 >
                   <FileText className="h-3 w-3" /> View Certificate
                 </button>
@@ -77,6 +94,7 @@ function AchievementCard({
 
 export default function Achievements() {
   const [modal, setModal] = useState<{ img: string; title: string } | null>(null);
+  const { isDark } = useTheme();
 
   return (
     <section id="achievements" className="py-24 md:py-32">
@@ -84,13 +102,15 @@ export default function Achievements() {
         <motion.div {...fade} className="mb-12">
           <div className="flex items-center gap-2 mb-2">
             <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">// 03</span>
-            <span className="h-px w-6 bg-white/10" />
+            <span className={`h-px w-6 ${isDark ? 'bg-white/10' : 'bg-black/10'}`} />
             <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase">COMPETITIVE WINS & LEADERSHIP</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+          <h2 className={`text-3xl md:text-4xl font-extrabold tracking-tight mb-3 transition-colors ${
+            isDark ? 'text-white' : 'text-zinc-950'
+          }`}>
             Achievements
           </h2>
-          <p className="text-[15px] text-zinc-400 max-w-xl">
+          <p className={`text-[15px] max-w-xl transition-colors ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
             Hackathon wins, national competitions, and technical leadership.
           </p>
         </motion.div>

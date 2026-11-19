@@ -16,6 +16,12 @@
     color: #F4F4F5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  html.light body {
+    background-color: #F8F9FA;
+    color: #09090B;
   }
 
   code, pre, .font-mono {
@@ -23,8 +29,13 @@
   }
 
   ::selection {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
+  }
+
+  html.light ::selection {
+    background: rgba(0, 0, 0, 0.15);
+    color: #000;
   }
 }
 
@@ -34,6 +45,41 @@
 ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
 
+html.light ::-webkit-scrollbar-track { background: #F8F9FA; }
+html.light ::-webkit-scrollbar-thumb { background: #D4D4D8; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
+
 section {
   scroll-margin-top: 80px;
+}
+
+/* ─── Creative Shockwave Expansion Animation ─── */
+@keyframes themeShockwave {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+    box-shadow: 0 0 15px currentColor;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(65);
+    opacity: 0;
+    box-shadow: 0 0 120px currentColor;
+  }
+}
+
+.animate-theme-shockwave {
+  animation: themeShockwave 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* View transitions root animation support */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
 }
